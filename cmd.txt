@@ -1,0 +1,12 @@
+https://www.java.com/fr/download/manual.jsp
+    Windows Hors ligne (64 bits)
+    taille de fichier : 69.00 MB
+
+https://start.spring.io/
+
+# إنشاء مشروع جديد
+spring init --dependencies=web,data-jpa,postgresql,lombok,validation \
+  --build=maven --java-version=17 crud-posts
+
+# الدخول للمشروع
+cd crud-posts
