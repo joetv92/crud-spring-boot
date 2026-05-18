@@ -10,3 +10,88 @@ spring init --dependencies=web,data-jpa,postgresql,lombok,validation \
 
 # الدخول للمشروع
 cd crud-posts
+
+# افتح CMD ونفذ:
+java -version
+javac -version
+
+الحل: حمّل JDK 17 من:
+👉 https://adoptium.net (Eclipse Temurin - مجاني)
+
+# تنظيف وتجميع
+mvn clean install
+
+# تشغيل التطبيق
+mvn spring-boot:run
+
+
+mvn clean install -DskipTests
+mvn spring-boot:run -DskipTests
+
+https://codebun.com/how-to-intrigrate-lombok-into-eclispe-or-sts/
+Enter the URL “https://projectlombok.org/p2” for “work with”
+
+https://www.youtube.com/watch?v=XSPLP6wJbrg
+
+https://jdbc.postgresql.org/
+
+-----------------------------------
+
+# 1. جلب كل المستخدمين (GET)
+curl -X GET http://localhost:8080/api/users
+
+# 2. جلب مستخدم محدد (GET)
+curl -X GET http://localhost:8080/api/users/1
+
+# 3. إنشاء مستخدم جديد (POST)
+curl -X POST http://localhost:8080/api/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "mohamed",
+    "email": "mohamed@email.com",
+    "password": "123456"
+  }'
+
+# 4. تحديث مستخدم (PUT)
+curl -X PUT http://localhost:8080/api/users/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "ahmed_updated",
+    "email": "ahmed_new@email.com",
+    "password": "newpassword"
+  }'
+
+# 5. حذف مستخدم (DELETE)
+curl -X DELETE http://localhost:8080/api/users/3
+
+-----------------------------
+
+# 1. جلب كل المنشورات (GET)
+curl -X GET http://localhost:8080/api/posts
+
+# 2. جلب منشور محدد (GET)
+curl -X GET http://localhost:8080/api/posts/1
+
+# 3. جلب منشورات مستخدم معين (GET)
+curl -X GET http://localhost:8080/api/posts/user/1
+
+# 4. إنشاء منشور جديد (POST)
+curl -X POST http://localhost:8080/api/posts \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "منشور جديد",
+    "content": "هذا محتوى المنشور الجديد",
+    "userId": 1
+  }'
+
+# 5. تحديث منشور (PUT)
+curl -X PUT http://localhost:8080/api/posts/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "عنوان مُحدَّث",
+    "content": "محتوى مُحدَّث",
+    "userId": 2
+  }'
+
+# 6. حذف منشور (DELETE)
+curl -X DELETE http://localhost:8080/api/posts/1
